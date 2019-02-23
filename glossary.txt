@@ -4,10 +4,10 @@ its contents with a hash. Git is merkle filesystem.  Bitcoin block
 header contains a pointer to the tree containing transactions. This
 makes the block size independent of the number of transactions in a
 block, and is actually what allows miners to use ASICs to search for a
-small hash value. They’re repeatedly hashing a constant size header.
+small hash value. They're repeatedly hashing a constant size header.
 
 Private blockchain (also permissioned blockchain) -- A txn basically
-(you can say it uses RAFT). Hyperledger Fabric, Multichain. It’s a
+(you can say it uses RAFT). Hyperledger Fabric, Multichain. It's a
 classic exchange.
 
 Proof-of-elapsed-time system, designed by Intel, uses trusted hardware
@@ -18,7 +18,7 @@ Proof-of-stake: instead spending $1000 buying mining equipment to
 engage in proof-of-work algorithm and winning a mining reward, buy
 $1000 worth of cryptocurrency and use it as stake to buy proportionate
 block creation chances in the blockchain system by becoming a
-validator.  Used by Ethereum “Serenity” (wtf is
+validator.  Used by Ethereum "Serenity" (wtf is
 serenity?). Proof-of-Stake was first designed and a naïve version of
 it used by PeerCoin. Different variations of PoS are also used by
 BitShares, NXT and Tendermint.
