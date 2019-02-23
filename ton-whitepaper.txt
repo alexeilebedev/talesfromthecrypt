@@ -1,0 +1,85 @@
+Alexei Lebedev
+Oct 30, 2018
+
+My information was based on this public white paper
+https://drive.google.com/file/d/1ucUeKg_NiR8RxNAonb8Q55jZha03WC0O/view
+
+And this, unofficially leaked, white paper:
+https://drive.google.com/file/d/1lqVlrgiztnA5dkOHP7-ENDKT1FgZuCUV/view
+I don't actually have any proof that the white paper was written by Nikolai
+Durov, because I have never been in contact with any member of the Telegram
+team, but I don't doubt that the document is real. At the time of writing, it is
+about a year old.
+
+What Are Blockchains
+Blockchains are append-only ledgers in untrusted
+environments. The main property of such a ledger is that the entire state of the
+environment is a function of the most recent entry in the ledger. Examples of
+blockchain are Bitcoin and Ethereum.
+
+What Are Multichains
+Consensus algorithms used to grow a blockchain are slow,
+having throughput of 0.001 to 0.1 blocks per second, each block containing
+~1,000 transactions. Multichain systems use multiple blockchains with system
+automatically carrying data between chains. Examples of multichains are
+Polkadot, Multichain and Cosmos.
+
+What Is TON
+TON is a multi blockchain that borrows the multichain concept,
+"validators", and "fishermen" from Polkadot; Byzantine Fault Tolerant consensus
+and hypercube message routing from Cosmos.  New elements are: A virtual machine
+operating on (arbitrarily?) complex algebraic types as values.  An off-chain
+storage platform.  Faster message routing.  Extra dimension of chain growth:
+TON's masterchain has workchains growing out of it, with each workchain
+corresponding to 1 or more shardchains.
+
+TON's shardchains are expected to forge a block every 5 seconds, and at the end
+of each 5-second interval, all new chain heads must be registered in the master
+chain. Reliable communication between chains means that no messages can be lost.
+
+TON's Capacity Claims TON authors claim that by using thousands of nodes, they
+will achieve a "huge distributed supercomputer" that will scale to "millions of
+transactions per second" and handle "all reasonable applications currently
+conceived".
+
+The TON white paper raises a number of questions. Specifically, I looked for
+any indications that the authors are aware of the following problems, and
+couldn't find any:
+- Amdahl's law means that the ~10-second latency between any
+two chains severely limits whatever parallelism the authors have imagined.
+- Queueing theory tells us that latencies for even small data dependency chains
+will quickly reach minutes and hours, since cross-chain bandwidth is low.
+- Requiring use of an inefficient interpreter ("TVM") and then charging for the
+CPU cycles that it took this interpreter to finish the job, means that there is
+a floor, below which application writers cannot compete for efficiency. Maximum
+efficiency will be achieved by TVM-specific hacks that use the least gas and do
+not maximize feature richness or customer convenience. No participant will be
+able to take advantage of a GPU, or a better programming language, or any other
+modern invention -- everyone's application must run on a highly generalized (as
+opposed to specialized) interpreter.
+- Forced serialization of chain heads through master chain will lock up
+applications. There is no way around it: the fastest shardchain's application
+will have to wait for the slowest shardchain in order to exchange a message with
+it.
+- Congestion trees will occur, since each shardchain is a serial processor.
+- Availability issues with one shardchain can also deadlock code running on
+another, since unavailability is simply high latency.
+- The possibility of any block being invalidated by a fisherman message
+means that the TON concept of a blockchain is logically inconsistent. It's not
+an append-only ledger after all. If validators, forming an overwhelming
+consensus, can make a mistake, then why can't a fisherman, plus whoever checks
+its claims? This has direct bearing on the feasibility of building an exchange
+on top of this technology. No exchange can tolerate undoing arbitrary past
+messages.
+- Infinite Sharding Paradigm bug: If a shardchain is sending too many
+messages, it may be split by TON in order to balance load. But this may end up,
+ironically, increasing its load because now calculations that didn't require a
+message will require one, due to the need to move data between chains, and thus
+cause additional sharding.  Under certain adverse application loads, the TON
+complex, even with thousands of active nodes, will perform worse than a 1990's
+PC due to the fact that its internal "frequency" is 0.2HZ. With more nodes,
+performance on these workloads will certainly get worse due to increased
+communication latency.
+- Scale calculations are nowhere to be found. It's all qualitative,
+not quantitative. What we can hope for in reality is transaction latency of minutes
+to hours under message volume of ~10,000 msgs/sec
