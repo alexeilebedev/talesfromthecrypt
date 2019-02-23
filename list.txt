@@ -1,0 +1,150 @@
+#AL# Alphabetic, non-exhaustive list of cryptocurrencies and systems
+I've spent some time analyzing/understanding, with some comments.
+
+Apla.io https://apla.io/White_Paper.pdf
+
+Bitcoin (BTC): https://blockchain.info/ Hashrate: 1e19 A block every
+10 minutes.  Купить кокс за битки (кокаин)
+
+Blockstack -- ecosystem of apps around blockchain something something.
+Has DNS, a storage system.
+
+Bytecoin (BCN): “The first private untraceable
+cryptocurrency”. https://bytecoin.org/ Capitalization $2B as of early 2018.
+
+Corda: similar to swirlds. A sprawling java-based ecosystem for financial
+transaction applications. Wants to be like FIX for all transaction types,
+and even allows for humans to be part of the business process. Nodes run
+a special deterministic JVM. Consensus is abstracted into "notary pools".
+https://www.corda.net/content/corda-platform-whitepaper.pdf
+
+Cosmos: Tendermint-based multichain with hub for sending messages.
+Not clear how it works.
+
+http://culedger.com/ -- does culedger use swirlds? Believes in
+permissioned distributed ledger (Distributed Ledger Technology
+(DLT)). I guess DLT is a txn? Then it’s not hashgraph. Todo explain.
+
+Culedger's report on cryptocurrencies:
+http://www.ofnumbers.com/wp-content/uploads/2015/04/Permissioned-distributed-ledgers.pdf
+
+Dash: digital cash (https://www.dash.org/) Originally XCoin, or maybe
+dark coin. Based on bitcoin. Big on features.  “decentralized
+autonomous organization” - DAO. DAO means that the rules that govern
+the network (namely the creation and allocation of transaction
+rewards) are somehow registered in the blockchain itself. Uses a
+network of masternodes, which are rewarded for validating, storing and
+serving blockchain to users. And presumably approving transactions. So
+it is not settled as fast as they say it is.  Has private transactions
+via “enhanced coinjoin”.  Compact blocks? Graphene? What are
+these. Ryan Taylor CEO.  Graphene - is bad, I have looked at their
+code. They try to do Proof of Stake. Written by kids.
+
+Ethereum (ETH): “smart contracts” - turing complete programs (written
+in Solidity or Serpent) executed on ethereum virtual machine (EVM). A
+transaction sends ether from A to B, and if B is a contract, its
+associated code executes. Sender must pay for recipient computation
+cycles. Contract addresses have unbounded key/value stores
+attached. All state is stored in the last block using Patricia tree (a
+variant of Merkle tree) and appended back to the blockchain.  Uses
+ASIC-resistant mining, produces a block every ~15 seconds Original
+Vitalik Buterin white paper:
+https://github.com/ethereum/wiki/wiki/White-Paper
+	
+Holochain: wtf is that https://github.com/metacurrency/holochain
+
+HyperLedger Fabric: developed by Linux Foundation, permissioned
+blockchain. Supports smart contracts, “chaincode”.
+
+Lightning: “payment channel” overlay for bitcoin, using PGP nature of
+bitcoin transactions to construct a longer chain of payments before
+committing final in/out values to the blockchain.
+https://medium.com/@lightning_network/lightning-protocol-1-0-compatibility-achieved-f9d22b7b19c4
+
+Multichain.com: Some company?
+
+NEM: is a peer-to-peer cryptocurrency platform. It is used in a
+commercial blockchain called Mijin, tested mainly in Japan, by
+financial institutions and private companies.
+
+Parity: (https://www.parity.io/: “the fastest and most secure…”), see
+hacks.txt.
+
+Polkadot: introduces validators, fishermen, collators, nominators, Not
+implemented. But idea due to Gavin Wood, Ethereum co-creator
+https://polkadot.network/PolkaDotPaper.pdf Fishermen look logically
+unsound (if validator can make a mistake proposing a block, even under
+consensus, then so can a fisherman. Worse, fisherman can now attack a
+valid block).
+
+Ripple (XRP): Ripple Consensus Protocol Algorithm - Ripple protocol
+requires each node to define a Unique Node List (UNL). The UNL
+comprises of other Ripple nodes that are trusted by the given node not
+to collude against it (HOW?). Consensus in the Ripple network is
+achieved by each node by consulting other nodes in its UNL. Each UNL
+has to have a 40% overlap with other nodes in the Ripple network
+[12]. Consensus happens in multiple rounds where each node collects
+transactions in a data structure called “candidate set” and broadcasts
+its candidate sets to other nodes in its UNL. Nodes validate the
+transactions, vote on them and broadcast the votes. Based on the
+accumulated votes, each node refines its candidate set and
+transactions receiving the largest number of votes are passed to the
+next round. When a candidate set receives a super-majority of 80% of
+votes from all nodes in the UNL, the candidate set becomes a valid
+block or in Ripple terms a “ledger”. This ledger is finalized and
+considered the “Last Closed Ledger (LCL)” and added to the Ripple
+blockchain by each node. Next round of consensus is started with newer
+transactions and pending transactions that did not make it into the
+last round of consensus. Consensus in the entire network is reached
+when each individual sub-network reaches consensus.
+
+Stellar (XLM): what is it?  Litecoin (LTC): bitcoin with 8x larger
+blocks, 2.5m threshold Namecoin: a registry of unique strings (kind of
+cool).  Colored coin: bitcoin, but each transaction has a color
+tag. Why?  Cardano (ADA): ?  SWIFT: Run by 7 banks. Connects 11,000
+financial institutions. 24M/transactions a day.
+
+Swirlds:
+http://www.swirlds.com/;
+Hashgraph algorithm Leemon Baird - CTO, their smart guy.
+Hashgraph whitepaper:
+http://www.swirlds.com/downloads/SWIRLDS-TR-2016-01.pdf Hashgraph
+site: https://hashgraph.com/ Swirlds SDK - in Java - uses armed bear
+common lisp (common lisp over jvm), portmapper, what does swirlds
+mean?
+
+Tendermint: single blockchain with byzantine fault tolerance (BFT)
+which is nothing more than voting Question is, is there a weak link in
+the supply chain?
+
+TON: Telegram Open Network.  Based on Polkadot + Cosmos with a message
+routing optimization (over Cosmos) And a load balancing algorithm.  I
+will call this whitepaper TON2017:
+https://denull.ru/telegram/ton-tech.pdf Polkadot’s validators can
+invalidate any blockchain block, so there is no immutability here
+after all. How block invalidation happens is completely not clear.
+
+zcash: https://z.cash/ based on bitcoin but uses privacy preserving
+(zero knowledge of sender, receiver, or amount) transactions using a
+concept of zk-SNA RK (Zero-Knowledge Succinct Non-Interactive Argument
+of Knowledge; succinct = takes a few milliseconds to verify;
+non-interactive = sender/receiver don’t have to communicate).  each
+transaction is 2, routing from shielded sender to transparent
+intermediary to shielded receiver. there are 2 coins: basecoin
+(public) and zerocoin (private).  Zcash had a “hidden randomness
+generation ceremony” (https://z.cash/technology/paramgen.html), where
+they subsequently blowtorched computers that had access to the secret
+information. Communication between airgapped computers was done via
+append-only DVDs.
+
+TRADITIONAL SYSTEMS
+Amex
+Cash
+Discover
+Mastercard
+Paypal - Centralized system that appears as an intermediary.
+Visa
+Zelle
+(https://www.zellepay.com/index.php/support/what-is-zelle) - a 2-step
+money transfer system that notifies recipient via e-mail or sms
+

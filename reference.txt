@@ -1,0 +1,14 @@
+https://www.persistent.com/wp-content/uploads/2017/04/WP-Understanding-Blockchain-Consensus-Models.pdf
+a good overview
+
+
+https://blockchain.info/
+Traverse bitcoin's blockchain, see current hash rate, etc.
+
+
+https://polkadot.network/PolkaDotPaper.pdf
+As far as I can tell, this very vague paper has been influential -- proof of stake
+systems (next version of Ethereum, TON, etc) all use concepts described here.
+#AL# aug 2018: Has any of this stuff ever been implemented? Looks like no.
+
+

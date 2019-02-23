@@ -1,0 +1,10 @@
+HACKS
+Lost amounts given in dollars as of the date of loss.
+Parity: multisig accidentally frozen funds: $150,000,000 (500K ETH, $700,000,000 as of today)
+
+https://www.theguardian.com/technology/2017/nov/08/cryptocurrency-300m-dollars-stolen-bug-ether
+MtGox (biggest exchange at the time): $473,000,000 stolen over time.
+Bitfinex (biggest exchange after mtgox) : $72,000,000 stolen in a hack of multisig wallets (“The era of commingling customer bitcoin and all of the associated security exposures is over”)
+Ethereum DAO: $50,000,000 stolen via recursion bug in DAO split function
+NiceHash (a miner): $87,000,000 stolen via a hack.
+Coincheck (japanese excusnge) Jan 2018:  58 billion yen (€436.54 million)  NEM stolen
