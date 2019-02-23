@@ -19,7 +19,7 @@ engage in proof-of-work algorithm and winning a mining reward, buy
 $1000 worth of cryptocurrency and use it as stake to buy proportionate
 block creation chances in the blockchain system by becoming a
 validator.  Used by Ethereum "Serenity" (wtf is
-serenity?). Proof-of-Stake was first designed and a naïve version of
+serenity?). Proof-of-Stake was first designed and a naive version of
 it used by PeerCoin. Different variations of PoS are also used by
 BitShares, NXT and Tendermint.
 
